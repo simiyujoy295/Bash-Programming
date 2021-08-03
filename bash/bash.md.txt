@@ -1,0 +1,45 @@
+SIMIYU JOY ABIGAEL – 120
+ PRACTICAL ACTIVITY 4:
+Email: joy.simiyu@womentechsters.org
+
+Write a shell script to validate password strength when a user enters. Here are a few assumptions for the password string. 
+•	Length – minimum of 8 characters. 
+•	Contain both alphabet and number. 
+•	Include both the small and capital case letters. 
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password> if the password complies with the conditions, it should echo <Strong Password Secure User> 
+	Created a file called practical2.sh where I wrote the code as shown below.
+
+ 
+
+
+	The code above is shown below:
+echo "enter the password"
+read password
+len="${#password}"
+if test $len -ge 8 ; then
+echo "$password" | grep -q [0-9]
+
+  if test $? -eq 0 ; then
+   echo "$password" | grep -q [A-Z]
+  if test $? -eq 0 ; then
+echo "$password" | grep -q [a-z]   
+ if test $? -eq 0 ; then
+ echo "Strong password"
+  else
+  echo "weak password include lower case char"
+  fi
+ else
+echo "weak password include capital char" 
+  fi
+ else
+echo "please include the numbers in password it is weak password"   
+fi
+else
+  echo "password lenght should be greater than or equal 8 hence weak password"
+fi
+	Below shows different passwords formats tried with their different error messages until user gets the password entered accepted as a strong password.
+ 
+
+ 
+
+
